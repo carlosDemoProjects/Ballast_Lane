@@ -1,0 +1,5 @@
+As a comic and manga reader, I want a personal web app where I can keep track of my collection — what I own, what I've read, and what I still need to get through 
+so I don't lose track across dozens of volumes and series.
+
+I need to be able to add new comics, edit the details if I made a mistake, mark them as read or unread, and remove ones I no longer want to track. 
+Nobody else should be able to touch my collection, and I shouldn't be able to see theirs either.
