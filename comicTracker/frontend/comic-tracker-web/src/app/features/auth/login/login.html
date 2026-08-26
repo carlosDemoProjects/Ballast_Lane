@@ -1,0 +1,20 @@
+ <div style="display:flex; justify-content:center; margin-top:80px">
+      <mat-card style="width:380px; padding:16px">
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="form" (ngSubmit)="submit()" style="display:flex; flex-direction:column; gap:12px; margin-top:16px">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="email">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" type="password">
+            </mat-form-field>
+            @if (error) { <p style="color:red">{{ error }}</p> }
+            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
+            <a routerLink="/register">Don't have an account? Register</a>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>

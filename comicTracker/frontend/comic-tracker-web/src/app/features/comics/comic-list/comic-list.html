@@ -1,0 +1,42 @@
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px">
+      <h2>My Comic Collection</h2>
+      <button mat-raised-button color="primary" (click)="openForm()">+ Add Comic</button>
+    </div>
+
+    <mat-card>
+      <table mat-table [dataSource]="comics()" style="width:100%">
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let c">{{ c.title }}</td>
+        </ng-container>
+        <ng-container matColumnDef="writer">
+          <th mat-header-cell *matHeaderCellDef>Writer</th>
+          <td mat-cell *matCellDef="let c">{{ c.writer }}</td>
+        </ng-container>
+        <ng-container matColumnDef="artist">
+          <th mat-header-cell *matHeaderCellDef>Artist</th>
+          <td mat-cell *matCellDef="let c">{{ c.artist }}</td>
+        </ng-container>
+        <ng-container matColumnDef="publisher">
+          <th mat-header-cell *matHeaderCellDef>Publisher</th>
+          <td mat-cell *matCellDef="let c">{{ c.publisher }}</td>
+        </ng-container>        
+        <ng-container matColumnDef="readed">
+          <th mat-header-cell *matHeaderCellDef>Read</th>
+          <td mat-cell *matCellDef="let c">{{ c.readed ? '✅' : '📖' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let c">
+            <button mat-icon-button color="primary" (click)="openForm(c)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="delete(c.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+      </table>
+    </mat-card>

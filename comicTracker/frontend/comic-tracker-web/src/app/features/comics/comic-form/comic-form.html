@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ data ? 'Edit' : 'Add' }} Comic</h2>
+    <mat-dialog-content>
+      <form [formGroup]="form" style="display:flex; flex-direction:column; gap:12px; padding-top:8px">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Writer</mat-label>
+          <input matInput formControlName="writer">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Artist</mat-label>
+          <input matInput formControlName="artist">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Publisher</mat-label>
+          <input matInput formControlName="publisher">
+        </mat-form-field>        
+        <mat-checkbox formControlName="readed">Already read</mat-checkbox>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit()">Save</button>
+    </mat-dialog-actions>
